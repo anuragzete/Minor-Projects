@@ -21,22 +21,7 @@ Welcome to **Minor-Projects**! This repository contains small Java projects that
 
 Each project has a corresponding **JAR file**, which you can download and execute easily.
 
-🔗 **Project Downloads**
-
-| 🚀 Project Name | 📥 Download |
-|---------------|------------|
-| **ATM Interface** | [Download](https://github.com/yourusername/Minor-Projects/releases/latest) |
-| **File Security** | [Download](https://github.com/yourusername/Minor-Projects/releases/latest) |
-| **Guess a Number** | [Download](https://github.com/yourusername/Minor-Projects/releases/latest) |
-| **Palindrome Checker** | [Download](https://github.com/yourusername/Minor-Projects/releases/latest) |
-| **Password Strength Checker** | [Download](https://github.com/yourusername/Minor-Projects/releases/latest) |
-| **Random Password Generator** | [Download](https://github.com/yourusername/Minor-Projects/releases/latest) |
-| **Quiz Application** | [Download](https://github.com/yourusername/Minor-Projects/releases/latest) |
-| **Rock Paper Scissors** | [Download](https://github.com/yourusername/Minor-Projects/releases/latest) |
-| **Simple Calculator** | [Download](https://github.com/yourusername/Minor-Projects/releases/latest) |
-| **Student Grade Calculator** | [Download](https://github.com/yourusername/Minor-Projects/releases/latest) |
-| **Temperature Converter** | [Download](https://github.com/yourusername/Minor-Projects/releases/latest) |
-| **Tic-Tac-Toe**  | [Download](https://github.com/yourusername/Minor-Projects/releases/latest) |
+🔗 **Download All Projects from GitHub Releases:** [Click Here](https://github.com/anuragzete/Minor-Projects/releases/tag/v1.0.1) 🚀
 
 ---
 
@@ -79,3 +64,4 @@ Have questions or suggestions? Feel free to reach out! 🚀
 **Happy Coding! 🚀**
 
 💙 If you find these projects useful, don't forget to **star** ⭐ this repository!
+
