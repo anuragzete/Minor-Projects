@@ -1,12 +1,12 @@
-package calculator;
+package com.project.calculator;
 
 import java.awt.event.ActionEvent;
 
-public class logic  {
-    private final baseUI baseUiInstance;
-    private final mainUI mainUiInstance;
+public class Logic {
+    private final BaseUI baseUiInstance;
+    private final MainUI mainUiInstance;
 
-    logic(baseUI baseUiInstance, mainUI mainUiInstance) {
+    Logic(BaseUI baseUiInstance, MainUI mainUiInstance) {
         this.baseUiInstance = baseUiInstance;
         this.mainUiInstance = mainUiInstance;
     }
@@ -54,7 +54,7 @@ public class logic  {
         try {
             baseUiInstance.history.setText(baseUiInstance.display.getText());
 
-            new infixToPostfix(mainUiInstance.input.toString(), mainUiInstance);
+            new InfixToPostfix(mainUiInstance.input.toString(), mainUiInstance);
 
             baseUiInstance.display.setText(Double.toString(mainUiInstance.result));
             mainUiInstance.input.setLength(0);

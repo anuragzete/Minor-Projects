@@ -1,11 +1,11 @@
-package calculator;
+package com.project.calculator;
 
 import java.util.List;
 import java.util.Stack;
 
-public class postfixEvaluation {
+public class PostfixEvaluation {
 
-    postfixEvaluation(List<String> expression,mainUI mainUiInstance) {
+    PostfixEvaluation(List<String> expression, MainUI mainUiInstance) {
         mainUiInstance.result = evaluatePostfix(expression);
     }
 

@@ -1,4 +1,4 @@
-package calculator;
+package com.project.calculator;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
@@ -17,7 +17,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import javax.swing.UIManager;
 
-public class baseUI extends JFrame {
+public class BaseUI extends JFrame {
     protected final int HEIGHT = 600;
     protected final int WIDTH = 500;
     protected final Color PRIMARY_DARK_COLOR = new Color(38, 38, 38);
@@ -63,8 +63,8 @@ public class baseUI extends JFrame {
         }
     }
 
-    baseUI() {
-        mainUI mainUiInstance = new mainUI(this);
+    BaseUI() {
+        MainUI mainUiInstance = new MainUI(this);
 
         this.setTitle("Simple Calculator");
         this.setIconImage(new ImageIcon(getClass().getResource("/icons8-calculator-48.png")).getImage());
@@ -79,7 +79,7 @@ public class baseUI extends JFrame {
         displayHolder.add(history, BorderLayout.NORTH);
         displayHolder.add(display, BorderLayout.CENTER);
 
-        this.addKeyListener(new keyboardEvents(this, mainUiInstance));
+        this.addKeyListener(new KeyboardEvents(this, mainUiInstance));
         this.add(displayHolder, BorderLayout.NORTH);
         this.add(mainUiInstance, BorderLayout.CENTER);
 
@@ -111,6 +111,6 @@ public class baseUI extends JFrame {
             }
         }
 
-        new baseUI();
+        new BaseUI();
     }
 }

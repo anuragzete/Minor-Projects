@@ -1,4 +1,4 @@
-package calculator;
+package com.project.calculator;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -8,7 +8,7 @@ import javax.swing.BorderFactory;
 import java.awt.Color;
 import java.awt.GridLayout;
 
-public class mainUI extends JPanel {
+public class MainUI extends JPanel {
     private final JButton[] buttons = new JButton[20];
     private final String[] buttonLabel = {
             "CE", "C", "%", "/",
@@ -22,8 +22,8 @@ public class mainUI extends JPanel {
     protected String inputString;
     protected double result;
 
-    mainUI(baseUI baseUiInstance) {
-        logic logicInstance = new logic(baseUiInstance , this);
+    MainUI(BaseUI baseUiInstance) {
+        Logic logicInstance = new Logic(baseUiInstance , this);
 
         this.setPreferredSize(new Dimension(WIDTH, (HEIGHT - 150)));
 

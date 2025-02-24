@@ -34,7 +34,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>calculator.baseUI</mainClass>
+                            <mainClass>com.project.calculator.BaseUI</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

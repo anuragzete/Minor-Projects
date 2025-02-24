@@ -1,13 +1,13 @@
-package calculator;
+package com.project.calculator;
 
 import java.util.Stack;
 import java.util.ArrayList;
 import java.util.List;
 
-public class infixToPostfix {
+public class InfixToPostfix {
 
-        infixToPostfix(String infix,mainUI mainUiInstance) {
-            new postfixEvaluation(infixToPostfixConversion(infix),mainUiInstance);
+        InfixToPostfix(String infix, MainUI mainUiInstance) {
+            new PostfixEvaluation(infixToPostfixConversion(infix),mainUiInstance);
         }
 
         private List<String> infixToPostfixConversion(String infix) {

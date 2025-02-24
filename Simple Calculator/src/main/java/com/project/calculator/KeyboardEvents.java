@@ -1,13 +1,13 @@
-package calculator;
+package com.project.calculator;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class keyboardEvents implements KeyListener {
-    private final baseUI baseUiInstance;
-    private final mainUI mainUiInstance;
+public class KeyboardEvents implements KeyListener {
+    private final BaseUI baseUiInstance;
+    private final MainUI mainUiInstance;
 
-    keyboardEvents(baseUI baseUiInstance, mainUI mainUiInstance) {
+    KeyboardEvents(BaseUI baseUiInstance, MainUI mainUiInstance) {
         this.baseUiInstance = baseUiInstance;
         this.mainUiInstance = mainUiInstance;
     }
@@ -116,7 +116,7 @@ public class keyboardEvents implements KeyListener {
         try {
             baseUiInstance.history.setText(baseUiInstance.display.getText());
 
-            new infixToPostfix(mainUiInstance.input.toString(), mainUiInstance);
+            new InfixToPostfix(mainUiInstance.input.toString(), mainUiInstance);
 
             baseUiInstance.display.setText(Double.toString(mainUiInstance.result));
             mainUiInstance.input.setLength(0);
