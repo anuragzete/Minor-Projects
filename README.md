@@ -16,12 +16,14 @@ Welcome to **Minor-Projects**! This repository contains small Java projects that
 10. 📊 **Student Grade Calculator** - Calculates student grades.
 11. 🌡️ **Temperature Converter** - Converts between Celsius, Fahrenheit, and Kelvin.
 12. ❌⭕ **Tic-Tac-Toe Game** - Console-based version of the classic game.
-
+13. 🐍 Snake Game - Classic snake game with easy and hard modes
+14. 🎓 Student Course Registration System - Register, update, and delete student records using MongoDB.
+     (Note: This project will download additional files on running for the first time.)
 ## 📥 Download & Run
 
 Each project has a corresponding **JAR file**, which you can download and execute easily.
 
-🔗 **Download All Projects from GitHub Releases:** [Click Here](https://github.com/anuragzete/Minor-Projects/releases/tag/v1.0.1) 🚀
+🔗 **Download All Projects from GitHub Releases:** [Click Here](https://github.com/anuragzete/Minor-Projects/releases/tag/v2.0.1) 🚀
 
 ---
 
@@ -56,8 +58,7 @@ Have questions or suggestions? Feel free to reach out! 🚀
 
 📧 Email: [anuragzete27@outlook.com](mailto:anuragzete27@outlook.com)  
 🔗 Portfolio: [Anurag Zete](https://portfolio-anuragzete.web.app/)  
-💼 LinkedIn: [Anurag Zete](https://www.linkedin.com/in/anurag-zete-java-developer)\
-📂 GitHub: [anuragzete](https://github.com/anuragzete)
+💼 LinkedIn: [Anurag Zete](https://www.linkedin.com/in/anurag-zete-java-developer)
 
 ---
 
