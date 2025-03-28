@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Student_Grade_Calculator_jar</output-path>
     <root id="archive" name="Student_Grade_Calculator.jar">
       <element id="module-output" name="Student_Grade_Calculator" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/lalyos/jfiglet/0.0.8/jfiglet-0.0.8.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

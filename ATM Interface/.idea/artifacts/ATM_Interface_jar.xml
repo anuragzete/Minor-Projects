@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/ATM_Interface_jar</output-path>
     <root id="archive" name="ATM_Interface.jar">
       <element id="module-output" name="ATM_Interface" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/lalyos/jfiglet/0.0.8/jfiglet-0.0.8.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
