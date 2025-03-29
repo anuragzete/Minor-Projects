@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Guess_a_Number:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Guess_a_Number_jar</output-path>
+    <root id="archive" name="Guess_a_Number.jar">
+      <element id="module-output" name="Guess_a_Number" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/lalyos/jfiglet/0.0.8/jfiglet-0.0.8.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

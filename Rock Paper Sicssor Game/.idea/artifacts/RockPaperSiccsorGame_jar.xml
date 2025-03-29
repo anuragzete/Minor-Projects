@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RockPaperSiccsorGame:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RockPaperSiccsorGame_jar</output-path>
+    <root id="archive" name="RockPaperSiccsorGame.jar">
+      <element id="module-output" name="RockPaperSiccsorGame" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/lalyos/jfiglet/0.0.8/jfiglet-0.0.8.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
