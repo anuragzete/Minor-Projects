@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"com.project","c":"TempConverter","l":"celsiusToFahrenheit(double)"},{"p":"com.project","c":"TempConverter","l":"fahrenheitToCelsius(double)"},{"p":"com.project","c":"TempConverter","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"com.project","c":"TempConverter","l":"TempConverter()","u":"%3Cinit%3E()"}];updateSearchResults();
