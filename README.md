@@ -19,6 +19,10 @@ Welcome to **Minor-Projects**! This repository contains small Java projects that
 13. 🐍 Snake Game - Classic snake game with easy and hard modes
 14. 🎓 Student Course Registration System - Register, update, and delete student records using MongoDB.
      (Note: This project will download additional files on running for the first time.)
+
+## 🔍 Documentation
+👉 **[View Javadocs](https://anuragzete.github.io/Minor-Projects/)** 📚
+
 ## 📥 Download & Run
 
 Each project has a corresponding **JAR file**, which you can download and execute easily.
