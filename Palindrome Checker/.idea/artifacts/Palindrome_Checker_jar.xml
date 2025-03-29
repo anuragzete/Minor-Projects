@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="Palindrome_Checker:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/Palindrome_Checker_jar</output-path>
-    <root id="archive" name="Palindrome_Checker.jar">
-      <element id="module-output" name="Palindrome_Checker" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/lalyos/jfiglet/0.0.8/jfiglet-0.0.8.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>

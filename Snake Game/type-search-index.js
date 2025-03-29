@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.project.snakeGame","l":"GamePanel"},{"p":"com.project.snakeGame","l":"HomePanel"},{"p":"com.project.snakeGame","l":"GamePanel.Mode"},{"p":"com.project.snakeGame","l":"GamePanel.MyKeyAdapter"},{"p":"com.project.snakeGame","l":"SnakeGame"}];updateSearchResults();

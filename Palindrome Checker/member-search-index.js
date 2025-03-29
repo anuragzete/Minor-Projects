@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"com.project","c":"PalindromeChecker","l":"checkContinuity(Scanner)","u":"checkContinuity(java.util.Scanner)"},{"p":"com.project","c":"PalindromeChecker","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"com.project","c":"PalindromeChecker","l":"PalindromeChecker()","u":"%3Cinit%3E()"}];updateSearchResults();
