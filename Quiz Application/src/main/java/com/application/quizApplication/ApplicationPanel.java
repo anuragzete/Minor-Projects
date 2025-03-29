@@ -16,18 +16,51 @@ import java.awt.GridLayout;
 import java.awt.Font;
 import java.awt.Color;
 
+/**
+ * The {@code ApplicationPanel} class is responsible for rendering the quiz interface
+ * and handling the game logic, including:
+ * <ul>
+ *     <li>Displaying questions with multiple-choice options.</li>
+ *     <li>Tracking the player's score.</li>
+ *     <li>Managing a countdown timer for each question.</li>
+ * </ul>
+ * <p>
+ * This panel uses Swing components to create a GUI-based quiz.
+ * </p>
+ */
 public class ApplicationPanel extends JPanel {
+
+    /** Label for displaying the countdown timer. */
     protected JLabel timerLabel;
+
+    /** Text area for displaying the current question. */
     protected JTextArea questionLabel;
+
+    /** Array of radio buttons for the multiple-choice options. */
     protected JRadioButton[] options;
+
+    /** Grouping radio buttons to allow only one selection at a time. */
     protected ButtonGroup group;
+
+    /** Button for moving to the next question. */
     protected JButton nextButton;
+
+    /** Current question index. */
     protected int currentQuestion = 0;
+
+    /** Player's score. */
     protected int score = 0;
+
+    /** Time left in seconds for the current question. */
     protected int timeLeft = 30;
+
+    /** Timer for countdown functionality. */
     protected Timer timer;
+
+    /** Panel to hold and display the options. */
     protected JPanel optionsPanel;
 
+    /** 2D array containing questions, options, and correct answers. */
     protected String[][] questions = {
             {"What is the capital of France?", "Paris", "London", "Berlin", "Madrid", "Paris"},
             {"Which language is used for Android development?", "Python", "Swift", "Java", "C++", "Java"},
@@ -41,6 +74,12 @@ public class ApplicationPanel extends JPanel {
             {"Which gas do plants absorb from the atmosphere?", "Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen", "Carbon Dioxide"}
     };
 
+    /**
+     * Constructs the quiz panel, initializes the GUI layout, and loads the first question.
+     * <p>
+     * Sets up the main layout, timer label, question area, options, and the next button.
+     * </p>
+     */
     ApplicationPanel() {
         this.setLayout(new BorderLayout(10, 10));
         this.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -98,6 +137,13 @@ public class ApplicationPanel extends JPanel {
         loadNextQuestion();
     }
 
+    /**
+     * Loads the next question into the GUI.
+     * <p>
+     * Updates the question label, sets the options, and starts the timer.
+     * If the quiz is over, displays the final score using {@code JOptionPane}.
+     * </p>
+     */
     protected void loadNextQuestion() {
         if (currentQuestion >= questions.length) {
             JOptionPane.showMessageDialog(this, "Quiz Over! Your Score: " + score);
@@ -120,6 +166,16 @@ public class ApplicationPanel extends JPanel {
         startTimer();
     }
 
+    /**
+     * Starts the countdown timer for the current question.
+     * <p>
+     * Decreases the timer by one second every tick. When the timer reaches zero:
+     * </p>
+     * <ul>
+     *     <li>Automatically checks the answer.</li>
+     *     <li>Loads the next question.</li>
+     * </ul>
+     */
     protected void startTimer() {
         timer = new Timer(1000, e -> {
             timeLeft--;
@@ -140,6 +196,13 @@ public class ApplicationPanel extends JPanel {
         timer.start();
     }
 
+    /**
+     * Checks the selected answer against the correct answer.
+     * <p>
+     * Increases the score if the answer is correct.
+     * Moves to the next question.
+     * </p>
+     */
     protected void checkAnswer() {
         if (timer != null) {
             timer.stop();

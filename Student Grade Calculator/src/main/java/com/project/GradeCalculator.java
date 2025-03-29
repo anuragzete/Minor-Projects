@@ -4,27 +4,101 @@ import com.github.lalyos.jfiglet.FigletFont;
 
 import java.util.Scanner;
 
+/**
+ * The {@code GradeCalculator} class calculates the grades of students based on their marks.
+ * <p>
+ * It takes input for the number of subjects, accepts marks for each subject,
+ * calculates the total and average marks, and assigns a grade based on predefined ranges.
+ * </p>
+ *
+ * <p>
+ * The program also handles invalid inputs and allows the user to calculate grades repeatedly
+ * until they choose to exit.
+ * </p>
+ *
+ * @author Anurag Zete
+ * @version 1.0.0
+ */
 public class GradeCalculator {
-    private static Scanner sc = new Scanner(System.in);
+
+    /**
+     * Scanner object for reading user input.
+     */
+    private static final Scanner sc = new Scanner(System.in);
+
+    /**
+     * Stores the cumulative total marks of all subjects.
+     */
     private static double totalMarks = 0;
+
+    /**
+     * Stores the total number of subjects entered by the user.
+     */
     private static int totalSubjects = 0;
+
+    /**
+     * Stores the calculated average marks.
+     */
     private static double averageMarks = 0;
 
+    /**
+     * Enum representing the grade system based on marks ranges.
+     * <p>
+     * Each grade has a minimum and maximum mark range.
+     * </p>
+     */
     private enum Grades {
+        /**
+         * Grade A: 91 - 100 marks.
+         */
         A(91, 100),
+
+        /**
+         * Grade B: 81 - 90 marks.
+         */
         B(81, 90),
+
+        /**
+         * Grade C: 71 - 80 marks.
+         */
         C(71, 80),
+
+        /**
+         * Grade D: 61 - 70 marks.
+         */
         D(61, 70),
+
+        /**
+         * Grade E: 51 - 60 marks.
+         */
         E(51, 60);
 
+        /**
+         * The minimum marks required for the grade.
+         */
         final double minMarks;
+
+        /**
+         * The maximum marks allowed for the grade.
+         */
         final double maxMarks;
 
+        /**
+         * Constructor to initialize the grade range.
+         *
+         * @param minMarks The minimum marks required for the grade.
+         * @param maxMarks The maximum marks allowed for the grade.
+         */
         Grades(double minMarks, double maxMarks) {
             this.minMarks = minMarks;
             this.maxMarks = maxMarks;
         }
 
+        /**
+         * Determines the grade based on the calculated average marks.
+         *
+         * @return The grade corresponding to the average marks, or {@code null} if no grade matches.
+         */
         static Grades getGrade() {
             for (Grades grade : Grades.values()) {
                 if (grade.minMarks < averageMarks && grade.maxMarks > averageMarks) {
@@ -35,6 +109,15 @@ public class GradeCalculator {
         }
     }
 
+    /**
+     * The main method to run the grade calculator program.
+     * <p>
+     * It displays a banner, starts the grade calculation loop,
+     * and exits the program when the user chooses to stop.
+     * </p>
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         try {
             String banner = FigletFont.convertOneLine("Student Grade Calculator");
@@ -49,6 +132,15 @@ public class GradeCalculator {
         sc.close();
     }
 
+    /**
+     * Runs the grade calculation program loop.
+     * <p>
+     * - Prompts the user for the number of subjects. <br>
+     * - Calls the {@code calculateGrade()} method to accept marks. <br>
+     * - Displays the result using {@code displayResult()}. <br>
+     * - Allows the user to repeat the grade calculation or exit.
+     * </p>
+     */
     private static void program() {
         while (true) {
             try {
@@ -75,6 +167,18 @@ public class GradeCalculator {
         }
     }
 
+    /**
+     * Accepts marks for each subject and calculates the total marks.
+     * <p>
+     * - Marks are stored in an array for validation purposes. <br>
+     * - Accepts "ab" or empty input as an indicator of absence (assigns 0.0). <br>
+     * - Ensures valid marks range (0 - 100) and handles incorrect input formats.
+     * </p>
+     *
+     * @param sc            The {@code Scanner} object for user input.
+     * @param totalSubjects The total number of subjects.
+     * @return The cumulative total marks.
+     */
     private static double calculateGrade(Scanner sc, int totalSubjects) {
         double[] marks = new double[totalSubjects];
         double total = 0.0;
@@ -108,6 +212,14 @@ public class GradeCalculator {
         return total;
     }
 
+    /**
+     * Displays the final results, including:
+     * <ul>
+     *     <li>Total marks obtained out of the maximum possible marks.</li>
+     *     <li>Average marks calculated.</li>
+     *     <li>The grade obtained based on the average.</li>
+     * </ul>
+     */
     private static void displayResult() {
         averageMarks = totalMarks / totalSubjects;
         Grades grade = Grades.getGrade();

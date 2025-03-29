@@ -3,20 +3,71 @@ package com.project.calculator;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+
+/**
+ * The {@code KeyboardEvents} class handles keyboard input events for the calculator.
+ * <p>
+ * It listens for key presses and performs the appropriate actions, such as:
+ * </p>
+ * <ul>
+ *     <li>Appending digits and operators to the display.</li>
+ *     <li>Handling special keys (Enter, Backspace, Delete, and Escape).</li>
+ *     <li>Supporting both standard and numpad keys.</li>
+ *     <li>Displaying and calculating the result.</li>
+ * </ul>
+ * <p>
+ * This class interacts with both {@code BaseUI} and {@code MainUI} instances
+ * to update the display and process the input.
+ * </p>
+ */
 public class KeyboardEvents implements KeyListener {
+
+    /**
+     * Reference to the {@code BaseUI} instance for accessing display and history labels.
+     */
     private final BaseUI baseUiInstance;
+
+    /**
+     * Reference to the {@code MainUI} instance for handling input operations.
+     */
     private final MainUI mainUiInstance;
 
+    /**
+     * Constructs the {@code KeyboardEvents} object with references to the UI instances.
+     *
+     * @param baseUiInstance The {@code BaseUI} instance for managing the display and history.
+     * @param mainUiInstance The {@code MainUI} instance for managing the input operations.
+     */
     KeyboardEvents(BaseUI baseUiInstance, MainUI mainUiInstance) {
         this.baseUiInstance = baseUiInstance;
         this.mainUiInstance = mainUiInstance;
     }
 
+    /**
+     * Handles the key-typed event.
+     * <p>
+     * This method is not used in the current implementation.
+     * </p>
+     *
+     * @param e The {@code KeyEvent} triggered by typing a key.
+     */
     @Override
     public void keyTyped(KeyEvent e) {
         // Not used
     }
 
+    /**
+     * Handles the key-pressed event and performs the corresponding action.
+     * <p>
+     * This method processes the following:
+     * <ul>
+     *     <li>Digits, decimal points, and operators.</li>
+     *     <li>Special keys (Enter, Backspace, Delete, and Escape).</li>
+     *     <li>Handles both standard and numpad keys.</li>
+     * </ul>
+     *
+     * @param e The {@code KeyEvent} triggered by pressing a key.
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
@@ -107,11 +158,30 @@ public class KeyboardEvents implements KeyListener {
 
     }
 
+    /**
+     * Handles the key-released event.
+     * <p>
+     * This method is not used in the current implementation.
+     * </p>
+     *
+     * @param e The {@code KeyEvent} triggered by releasing a key.
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         // Not used
     }
 
+    /**
+     * Handles the evaluation of the expression and displays the result.
+     * <p>
+     * This method:
+     * <ul>
+     *     <li>Sets the history label with the current display content.</li>
+     *     <li>Converts the infix expression to postfix using {@code InfixToPostfix} class.</li>
+     *     <li>Displays the evaluated result.</li>
+     *     <li>Clears the input and updates it with the result.</li>
+     * </ul>
+     */
     private void handleResult() {
         try {
             baseUiInstance.history.setText(baseUiInstance.display.getText());

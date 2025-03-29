@@ -6,14 +6,32 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+/**
+ * The {@code StudentService} class provides CRUD operations for managing students in the MongoDB database.
+ * It handles adding, updating, deleting, and searching student records.
+ */
 public class StudentService {
 
+    /** The MongoDB collection for storing student information. */
     private final MongoCollection<Document> studentCollection;
 
+    /**
+     * Constructs a new {@code StudentService} instance with the specified MongoDB database.
+     *
+     * @param database The MongoDB database used for storing student data.
+     */
     public StudentService(MongoDatabase database) {
         studentCollection = database.getCollection("students");
     }
 
+    /**
+     * Adds a new student to the MongoDB collection.
+     * <p>
+     * Also updates the course document to include the student in its enrolled list.
+     * </p>
+     *
+     * @param student The {@link Student} object representing the student to add.
+     */
     protected void addStudent(Student student) {
         MongoDatabase database = MongoDBUtil.getDatabase();
         MongoCollection<Document> courseCollection = database.getCollection("courses");
@@ -40,6 +58,12 @@ public class StudentService {
         System.out.println("Student added: " + student.getName() + ", ID: " + doc.getObjectId("_id"));
     }
 
+    /**
+     * Displays all students stored in the MongoDB collection.
+     * <p>
+     * Prints the ID, name, email, and course of each student.
+     * </p>
+     */
     protected void displayAllStudents() {
         System.out.println("\nAll Students:\n");
 
@@ -67,6 +91,18 @@ public class StudentService {
         }
     }
 
+    /**
+     * Updates the details of an existing student by ID.
+     * <p>
+     * If the student is moved to a new course, it removes them from the old course's list
+     * and adds them to the new course's list.
+     * </p>
+     *
+     * @param id The MongoDB ID of the student to update.
+     * @param name The new name of the student (if not empty).
+     * @param email The new email of the student (if not empty).
+     * @param course The new course of the student (if not empty).
+     */
     protected void updateStudent(String id, String name, String email, String course) {
         MongoDatabase database = MongoDBUtil.getDatabase();
         ObjectId objectId = new ObjectId(id);
@@ -118,6 +154,14 @@ public class StudentService {
         }
     }
 
+    /**
+     * Deletes a student by their ID from the MongoDB collection.
+     * <p>
+     * Also removes the student from the course they were enrolled in.
+     * </p>
+     *
+     * @param id The MongoDB ID of the student to delete.
+     */
     protected void deleteStudent(String id) {
         MongoDatabase database = MongoDBUtil.getDatabase();
         ObjectId objectId = new ObjectId(id);
@@ -143,6 +187,14 @@ public class StudentService {
         System.out.println("Student '" + studentName + "' deleted successfully!");
     }
 
+    /**
+     * Searches for a student by their ID in the MongoDB collection.
+     * <p>
+     * Prints the student details if found; otherwise, displays an appropriate message.
+     * </p>
+     *
+     * @param id The MongoDB ID of the student to search for.
+     */
     protected void searchStudent(String id) {
         try {
             ObjectId objectId = new ObjectId(id);

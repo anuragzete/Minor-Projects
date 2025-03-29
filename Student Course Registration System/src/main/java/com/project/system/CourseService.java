@@ -8,16 +8,33 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+/**
+ * The {@code CourseService} class handles CRUD operations related to courses in the MongoDB database.
+ * It allows adding, deleting, searching, and displaying course information.
+ */
 public class CourseService {
 
+    /** The MongoDB collection for storing course information. */
     private final MongoCollection<Document> courseCollection;
+
+    /** The MongoDB collection for storing student information. */
     private final MongoCollection<Document> studentCollection;
 
+    /**
+     * Constructs a new {@code CourseService} instance using the provided MongoDB database connection.
+     *
+     * @param database The MongoDB database to interact with.
+     */
     public CourseService(MongoDatabase database) {
         courseCollection = database.getCollection("courses");
         studentCollection = database.getCollection("students");
     }
 
+    /**
+     * Adds a new course to the MongoDB collection.
+     *
+     * @param course The {@link Course} object representing the course details.
+     */
     protected void addCourse(Course course) {
         Document doc = new Document("name", course.getName())
                 .append("description", course.getDescription());
@@ -25,6 +42,12 @@ public class CourseService {
         System.out.println("Course added: " + course.getName());
     }
 
+    /**
+     * Displays all courses stored in the MongoDB collection.
+     * <p>
+     * For each course, it prints the course name, description, and the list of enrolled students (if any).
+     * </p>
+     */
     protected void displayAllCourses() {
         System.out.println("\nAll Courses:\n");
 
@@ -49,6 +72,14 @@ public class CourseService {
         }
     }
 
+    /**
+     * Deletes a course by its name from the MongoDB collection.
+     * <p>
+     * Also unenrolls students from the deleted course by removing the course reference from their records.
+     * </p>
+     *
+     * @param name The name of the course to delete.
+     */
     protected void deleteCourse(String name) {
         Document query = new Document("name", name);
 
@@ -75,7 +106,11 @@ public class CourseService {
         }
     }
 
-
+    /**
+     * Searches for courses by name (case-insensitive) using a regular expression.
+     *
+     * @param name The name of the course to search for (or a partial name).
+     */
     protected void searchCourse(String name) {
         Document query = new Document("name", new Document("$regex", name).append("$options", "i"));
         for (Document doc : courseCollection.find(query)) {

@@ -5,7 +5,16 @@ import org.bson.types.ObjectId;
 
 import java.util.Scanner;
 
+/**
+ * The {@code Menu} class provides the user interface for the Student-Course Registration System.
+ * It allows performing CRUD operations on students and courses using a console-based menu.
+ */
 public class Menu {
+
+    /**
+     * Constructs a new {@code Menu} instance and initializes the MongoDB connection.
+     * It continuously displays the menu and processes user input until the program exits.
+     */
     public Menu() {
         MongoDatabase database = MongoDBUtil.getDatabase();
 
@@ -75,6 +84,12 @@ public class Menu {
         }
     }
 
+    /**
+     * Adds a new student by taking input from the user.
+     *
+     * @param scanner        The scanner to read user input.
+     * @param studentService The service for managing student operations.
+     */
     private void addStudent(Scanner scanner, StudentService studentService) {
         System.out.print("Enter Student Name: ");
         String name = scanner.nextLine();
@@ -89,6 +104,12 @@ public class Menu {
         studentService.addStudent(student);
     }
 
+    /**
+     * Edits the details of an existing student based on the user-provided ID.
+     *
+     * @param scanner        The scanner to read user input.
+     * @param studentService The service for managing student operations.
+     */
     private void editStudent(Scanner scanner, StudentService studentService) {
         System.out.print("Enter Student ID to edit: ");
         String id = scanner.nextLine().trim();
@@ -157,18 +178,36 @@ public class Menu {
         }
     }
 
+    /**
+     * Deletes a student by ID.
+     *
+     * @param scanner        The scanner to read user input.
+     * @param studentService The service for managing student operations.
+     */
     private void deleteStudent(Scanner scanner, StudentService studentService) {
         System.out.print("Enter Student ID to delete: ");
         String id = scanner.nextLine();
         studentService.deleteStudent(id);
     }
 
+    /**
+     * Searches for a student by ID and displays the result.
+     *
+     * @param scanner        The scanner to read user input.
+     * @param studentService The service for managing student operations.
+     */
     private void searchStudent(Scanner scanner, StudentService studentService) {
         System.out.print("Enter Student id to search: ");
         String id = scanner.nextLine();
         studentService.searchStudent(id);
     }
 
+    /**
+     * Adds a new course by taking input from the user.
+     *
+     * @param scanner       The scanner to read user input.
+     * @param courseService The service for managing course operations.
+     */
     private void addCourse(Scanner scanner, CourseService courseService) {
         System.out.print("Enter Course Name: ");
         String name = scanner.nextLine();
@@ -180,12 +219,24 @@ public class Menu {
         courseService.addCourse(course);
     }
 
+    /**
+     * Deletes a course by name.
+     *
+     * @param scanner       The scanner to read user input.
+     * @param courseService The service for managing course operations.
+     */
     private void deleteCourse(Scanner scanner, CourseService courseService) {
         System.out.print("Enter Course name to delete: ");
         String id = scanner.nextLine();
         courseService.deleteCourse(id);
     }
 
+    /**
+     * Searches for a course by name and displays the result.
+     *
+     * @param scanner       The scanner to read user input.
+     * @param courseService The service for managing course operations.
+     */
     private void searchCourse(Scanner scanner, CourseService courseService) {
         System.out.print("Enter Course Name to search: ");
         String name = scanner.nextLine();

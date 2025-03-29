@@ -2,16 +2,60 @@ package com.project.game;
 
 import java.util.Scanner;
 
-public class TicTacToe {
+    /**
+    * The {@code TicTacToe} class represents the core logic of the Tic-Tac-Toe game.
+    * <p>
+    * It handles board initialization, player selection, game play, and winner determination.
+    * </p>
+    */
+    public class TicTacToe {
+
+    /**
+     * Flag to indicate if the game is over.
+     */
     private boolean isGameOver = false;
+
+    /**
+     * Counter to track the number of turns taken.
+     * <p>
+     * Maximum value is 9, as the board has 9 cells.
+     * </p>
+     */
     private int turns = 0;
+
+    /**
+     * Symbol representing Player X.
+     */
     private final String playerX = "X";
+
+    /**
+     * Symbol representing Player O.
+     */
     private final String playerO = "O";
+
+    /**
+     * The symbol of the player whose turn it is (either "X" or "O").
+     */
     private String currentPlayer;
+
+    /**
+     * 3x3 game board represented as a 2D array.
+     * Each cell contains either "X", "O", or an empty string.
+     */
     private final String[][] board = new String[3][3];
 
-    private Scanner sc = new Scanner(System.in);
+    /**
+     * Scanner object for reading user input.
+     */
+    private final Scanner sc = new Scanner(System.in);
 
+    /**
+     * Constructs a new TicTacToe game.
+     * <p>
+     * Initializes the board, prompts the user to select the first player,
+     * and starts the game loop.
+     * </p>
+     */
     TicTacToe() {
         for (int r = 0; r < 3; r++) {
             for (int c = 0; c < 3; c++) {
@@ -23,6 +67,12 @@ public class TicTacToe {
         playGame();
     }
 
+    /**
+     * Allows the user to select the first player (X or O).
+     * <p>
+     * Ensures that the input is valid and assigns the current player accordingly.
+     * </p>
+     * */
     private void selectPlayer() {
         int userInput;
 
@@ -50,6 +100,12 @@ public class TicTacToe {
         }
     }
 
+    /**
+     * Displays the initial board layout with cell numbers for reference.
+     * <p>
+     * The board is printed with cell numbers 1-9, arranged in a 3x3 grid format.
+     * </p>
+     */
     private void initializeBoard() {
         int idx = 1;
         for (int i = 0; i < 3; i++) {
@@ -67,6 +123,13 @@ public class TicTacToe {
         System.out.println("\n-------------");
     }
 
+    /**
+     * Controls the main game loop.
+     * <p>
+     * Handles player turns, board updates, and checks for a winner or a tie.
+     * Switches players after every valid move.
+     * </p>
+     */
     private void playGame() {
         int userInput;
 
@@ -111,6 +174,12 @@ public class TicTacToe {
         }
     }
 
+    /**
+     * Updates the board with the current player's move and redraws the board.
+     *
+     * @param row The row index of the board (0-2).
+     * @param col The column index of the board (0-2).
+     */
     private void updateBoard(int row, int col) {
         board[row][col] = currentPlayer;
         int idx = 1;
@@ -133,6 +202,13 @@ public class TicTacToe {
         System.out.println("\n-------------");
     }
 
+    /**
+     * Checks for a winner or a tie by evaluating board conditions.
+     * <p>
+     * - Checks for winning combinations horizontally, vertically, and diagonally.<br>
+     * - Declares the winner or tie and terminates the game if the conditions are met.
+     * </p>
+     */
     private void checkWinner() {
         //horizontal check
         for (int i = 0; i < 3; i++) {
@@ -169,6 +245,9 @@ public class TicTacToe {
         }
     }
 
+    /**
+     * Declares the current player as the winner and ends the game.
+     */
     private void setWinner() {
         System.out.println(currentPlayer + " is the Winner!");
         System.out.println("==================================");

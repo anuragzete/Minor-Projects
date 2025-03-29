@@ -4,7 +4,26 @@ import com.github.lalyos.jfiglet.FigletFont;
 
 import java.util.Scanner;
 
+/**
+ * The {@code Main} class serves as the entry point for the Tic-Tac-Toe game.
+ * <p>
+ * It initializes the game, handles user input, and allows the player to replay
+ * or exit the game.
+ * </p>
+ *
+ * @author Anurag Zete
+ * @version 1.0.0
+ */
 public class Main {
+
+    /**
+     * The main method initializes the Tic-Tac-Toe game.
+     * <p>
+     * It displays a banner, starts the game, and handles the replay logic.
+     * </p>
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

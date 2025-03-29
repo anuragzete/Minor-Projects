@@ -3,13 +3,38 @@ package com.myBank;
 import com.myBank.bankServer.Bank;
 import com.myBank.bankServer.UserAccount;
 
+/**
+ * The {@code ATM} class represents the core functionality of an Automated Teller Machine (ATM) interface.
+ * <p>
+ * It extends the {@link Bank} class, providing access to bank operations such as account creation, login,
+ * balance checking, deposits, withdrawals, money transfers, and account management.
+ * </p>
+ *
+ * <h2>Features:</h2>
+ * - Create a new user account.
+ * - Login to an existing account.
+ * - Perform banking operations such as checking balance, withdrawing, depositing, and transferring money.
+ * - Update or delete user accounts.
+ * - Exit the application gracefully.
+ */
 public class ATM extends Bank {
+
+    /**
+     * Stores the current user session after successful login.
+     */
     private UserAccount currentUser;
 
+    /**
+     * Constructs a new {@code ATM} instance and initializes the ATM interface.
+     */
     ATM() {
         initializeAtm();
     }
 
+    /**
+     * Initializes the ATM interface, allowing users to create accounts, login, or exit the program.
+     * It handles menu navigation and ensures valid user input.
+     */
     private void initializeAtm() {
         System.out.println("Welcome to the ATM!");
         System.out.println("What do you want to do?");
@@ -50,6 +75,12 @@ public class ATM extends Bank {
         }
     }
 
+
+    /**
+     * Displays the user panel with banking options after successful login.
+     * Provides options for checking balance, withdrawing, depositing, transferring, updating,
+     * or deleting the account. It also offers the option to return to the main menu or exit the program.
+     */
     private void userPanel() {
         System.out.println("Welcome, " + getUsername(currentUser) + "!");
         System.out.println("What would you like to do?");
@@ -105,6 +136,10 @@ public class ATM extends Bank {
         }
     }
 
+    /**
+     * Handles the user login process by prompting for account number and password.
+     * Repeats the process until valid credentials are entered.
+     */
     private void login() {
         long accountNumber;
 

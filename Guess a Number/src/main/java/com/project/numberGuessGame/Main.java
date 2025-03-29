@@ -5,7 +5,26 @@ import com.github.lalyos.jfiglet.FigletFont;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Main class for the Number Guessing Game application.
+ * <p>
+ * This game randomly selects a number between 1 and 100, and the player
+ * tries to guess it. The game keeps track of the player's score and
+ * allows them to play multiple rounds.
+ *
+ * @author Anurag Zete
+ * @version 1.0.0
+ */
 public class Main {
+
+    /**
+     * The entry point for the Number Guessing Game.
+     * <p>
+     * Displays a welcome banner, handles the game loop, and manages the
+     * player's score across multiple rounds.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();

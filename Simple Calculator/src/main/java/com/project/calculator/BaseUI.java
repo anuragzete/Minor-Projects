@@ -17,20 +17,86 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import javax.swing.UIManager;
 
+/**
+ * The {@code BaseUI} class represents the main graphical user interface for a simple calculator application.
+ * <p>
+ * It sets up the main frame, display panels, and handles theme selection (dark/light mode).
+ * It uses the {@code FlatLaf} library for a modern UI look and feel.
+ * </p>
+ *
+ * <p>
+ * The class creates and initializes the base layout, display area, and integrates the {@code MainUI}
+ * component, which contains the calculator buttons and functionalities.
+ * </p>
+ *
+ * @author Anurag Zete
+ * @version 1.0.0
+ */
 public class BaseUI extends JFrame {
+
+    /**
+     * The height of the application window.
+     */
     protected final int HEIGHT = 600;
+
+    /**
+     * The width of the application window.
+     */
     protected final int WIDTH = 500;
+
+    /**
+     * The primary color used for the dark mode background.
+     */
     protected final Color PRIMARY_DARK_COLOR = new Color(38, 38, 38);
+
+    /**
+     * The secondary color used for the dark mode panel background.
+     */
     protected final Color SECONDARY_DARK_COLOR = new Color(30, 30, 30);
+
+    /**
+     * The primary color used for the light mode background.
+     */
     protected final Color PRIMARY_LIGHT_COLOR = new Color(222, 222, 222);
+
+    /**
+     * The secondary color used for the light mode panel background.
+     */
     protected final Color SECONDARY_LIGHT_COLOR = new Color(225, 225, 225);
 
+    /**
+     * Flag to determine whether the application should use dark mode or light mode.
+     * <p>
+     * If {@code true}, the dark mode theme is applied. Otherwise, light mode is used.
+     * </p>
+     */
     protected static final boolean isDarkMode = true;
 
+    /**
+     * The main panel that holds the display and history labels.
+     */
     protected JPanel displayHolder = new JPanel();
+
+    /**
+     * Label to display the calculation history.
+     */
     protected JLabel history = new JLabel();
+
+    /**
+     * Label to display the current input or result of the calculator.
+     */
     protected JLabel display = new JLabel();
 
+    /**
+     * Initializes the display panel and sets up colors, fonts, and layout based on the selected theme.
+     * <p>
+     * The initialization block configures:
+     * <ul>
+     *     <li>Panel dimensions and layout.</li>
+     *     <li>Label fonts, colors, and alignments.</li>
+     *     <li>Applies dark or light mode color scheme.</li>
+     * </ul>
+     */
     {
         displayHolder.setPreferredSize(new Dimension(WIDTH, 100));
         displayHolder.setLayout(new BorderLayout());
@@ -63,6 +129,18 @@ public class BaseUI extends JFrame {
         }
     }
 
+    /**
+     * Constructor for the {@code BaseUI} class.
+     * <p>
+     * Initializes the main frame, sets the title, icon, and configures the layout.
+     * <p>
+     * It:
+     * <ul>
+     *     <li>Loads the main UI components by creating an instance of {@code MainUI}.</li>
+     *     <li>Registers key listeners for keyboard events.</li>
+     *     <li>Sets the frame properties such as size, location, and visibility.</li>
+     * </ul>
+     */
     BaseUI() {
         MainUI mainUiInstance = new MainUI(this);
 
@@ -95,6 +173,14 @@ public class BaseUI extends JFrame {
 
     }
 
+    /**
+     * The main entry point of the application.
+     * <p>
+     * It applies the selected theme (dark or light mode) using {@code FlatLaf} for UI consistency.
+     * </p>
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
 
         if (isDarkMode) {

@@ -4,7 +4,29 @@ import com.github.lalyos.jfiglet.FigletFont;
 
 import java.util.Scanner;
 
+/**
+ * Main class for the Password Strength Checker application.
+ * <p>
+ * This program checks the strength of a given password by evaluating
+ * its length, uppercase and lowercase letters, numbers, and special characters.
+ * It provides feedback on the password's strength.
+ * </p>
+ *
+ * @author Anurag Zete
+ * @version 1.0.0
+ */
 public class PassStrengthChecker {
+
+    /**
+     * The entry point of the Password Strength Checker application.
+     * <p>
+     * Displays a welcome banner, prompts the user for passwords, and evaluates
+     * their strength based on multiple conditions. The program runs in a loop
+     * until the user chooses to exit.
+     * </p>
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -39,6 +61,19 @@ public class PassStrengthChecker {
         sc.close();
     }
 
+    /**
+     * Checks the strength of the given password based on the following criteria:
+     * <ul>
+     *     <li>Length (at least 8 characters)</li>
+     *     <li>Contains at least one uppercase letter</li>
+     *     <li>Contains at least one lowercase letter</li>
+     *     <li>Contains at least one number</li>
+     *     <li>Contains at least one special character</li>
+     * </ul>
+     *
+     * @param password The password to evaluate.
+     * @return A string describing the password's strength and suggestions for improvement.
+     */
     private static String checkPasswordStrength(String password) {
         int length = password.length();
         boolean hasUppercase = !password.equals(password.toLowerCase());

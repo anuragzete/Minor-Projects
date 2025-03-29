@@ -8,8 +8,31 @@ import javax.swing.BorderFactory;
 import java.awt.Color;
 import java.awt.GridLayout;
 
+/**
+ * The {@code MainUI} class represents the panel containing all calculator buttons.
+ * <p>
+ * It is responsible for:
+ * </p>
+ * <ul>
+ *     <li>Creating and styling the calculator buttons.</li>
+ *     <li>Setting up the layout for the button panel.</li>
+ *     <li>Attaching action listeners to each button, triggering operations.</li>
+ * </ul>
+ * <p>
+ * This class integrates with {@code BaseUI} and uses {@code Logic} to perform
+ * the necessary calculations.
+ * </p>
+ */
 public class MainUI extends JPanel {
+
+    /**
+     * Array of buttons representing the calculator keys.
+     */
     private final JButton[] buttons = new JButton[20];
+
+    /**
+     * Labels for the buttons, representing digits, operations, and functions.
+     */
     private final String[] buttonLabel = {
             "CE", "C", "%", "/",
             "7", "8", "9", "*",
@@ -18,10 +41,33 @@ public class MainUI extends JPanel {
             "0", "00", ".", "="
     };
 
+    /**
+     * The current input being displayed on the calculator.
+     * <p>
+     * It is updated as the user clicks buttons.
+     * </p>
+     */
     protected StringBuilder input = new StringBuilder();
+
+    /**
+     * The string representation of the current input.
+     */
     protected String inputString;
+
+    /**
+     * The result of the last calculation performed.
+     */
     protected double result;
 
+    /**
+     * Constructs the {@code MainUI} panel and initializes the calculator buttons.
+     * <p>
+     * It configures the panel layout, creates buttons with appropriate labels,
+     * sets colors, fonts, and attaches action listeners for operations.
+     * </p>
+     *
+     * @param baseUiInstance The {@code BaseUI} instance to access global properties like colors and theme.
+     */
     MainUI(BaseUI baseUiInstance) {
         Logic logicInstance = new Logic(baseUiInstance , this);
 

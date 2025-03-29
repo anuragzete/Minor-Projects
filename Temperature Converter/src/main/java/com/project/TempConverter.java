@@ -3,7 +3,38 @@ package com.project;
 import com.github.lalyos.jfiglet.FigletFont;
 import java.util.Scanner;
 
+/**
+ * Temperature Converter Application.
+ * <p>
+ * This program provides a console-based temperature conversion utility with the following functionalities:
+ * <ul>
+ *     <li>Convert Celsius to Fahrenheit</li>
+ *     <li>Convert Fahrenheit to Celsius</li>
+ *     <li>Exit the program</li>
+ * </ul>
+ * The program uses {@code jfiglet} to display a banner in ASCII art.
+ *
+ * @author Anurag Zete
+ * @version 1.0.0
+ * @since 2025-02-24
+ */
 public class TempConverter {
+
+    /**
+     * Default constructor for the {@code TempConverter} class.
+     * <p>
+     * This constructor is automatically invoked when creating an instance of the class.
+     */
+    public TempConverter() { }
+
+    /**
+     * The main entry point for the temperature converter program.
+     * <p>
+     * It displays a banner, provides a menu for the user to select conversion operations,
+     * and handles invalid inputs gracefully.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         int choice;
         String unit;
@@ -52,10 +83,22 @@ public class TempConverter {
 
     }
 
+    /**
+     * Converts temperature from Celsius to Fahrenheit.
+     *
+     * @param celsius The temperature in Celsius.
+     * @return The equivalent temperature in Fahrenheit.
+     */
     private static double celsiusToFahrenheit(double celsius) {
         return ((celsius * 9 / 5) + 32);
     }
 
+    /**
+     * Converts temperature from Fahrenheit to Celsius.
+     *
+     * @param fahrenheit The temperature in Fahrenheit.
+     * @return The equivalent temperature in Celsius.
+     */
     private static double fahrenheitToCelsius(double fahrenheit) {
         return ((fahrenheit - 32) * 5 / 9);
     }

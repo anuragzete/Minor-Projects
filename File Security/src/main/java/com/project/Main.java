@@ -7,18 +7,49 @@ import javax.swing.JFileChooser;
 import java.io.File;
 import java.util.Scanner;
 
+/**
+ * The entry point for the File Security application.
+ * <p>
+ * This class provides a command-line interface for encrypting and
+ * decrypting files. It uses Swing's {@link JFileChooser} for file selection
+ * and handles user interactions with the console.
+ *
+ * @author Anurag Zete
+ * @version 1.0.0
+ * @since 2025-03-29
+ */
 public class Main {
+
+    /** Scanner for reading user input. */
     private static Scanner sc = new Scanner(System.in);
+
+    /** JFrame used for the file chooser dialog. */
     private static JFrame frame = new JFrame();
 
+    /** The password used for encryption or decryption. */
     private static String password;
+
+    /** The file selected by the user for encryption/decryption. */
     private static File file;
+
+    /** Flag indicating whether encryption or decryption is selected. */
     private static boolean isEncryptSelected;
 
-    Main(){
+    /**
+     * Constructor initializes the JFrame with the default close operation.
+     */
+    Main() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    /**
+     * The main method that starts the application.
+     * <p>
+     * It displays an ASCII banner, prompts the user to select an operation,
+     * and handles the encryption or decryption process.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         try{
             String banner = FigletFont.convertOneLine("File Security");
@@ -35,6 +66,13 @@ public class Main {
         sc.close();
     }
 
+    /**
+     * Handles the file operations by allowing the user to choose between
+     * encryption, decryption, or exiting the program.
+     * <p>
+     * Displays a menu and uses {@link JFileChooser} for file selection.
+     * It repeatedly prompts the user until a valid operation is chosen.
+     */
     private static void fileHandler(){
         while (true) {
             try {

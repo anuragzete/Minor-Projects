@@ -5,10 +5,39 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * The {@code Bank} class manages all banking operations, including account creation, deletion,
+ * updates, transfers, and balance management. It acts as the core banking service layer,
+ * maintaining a list of user accounts.
+ *
+ * <h2>Features:</h2>
+ * - Create new user accounts with unique account numbers.
+ * - Delete existing accounts with confirmation prompts.
+ * - Update user account details such as mobile number or password.
+ * - Transfer money between accounts.
+ * - Authenticate users and retrieve account details.
+ * - Modify account balances for deposits and withdrawals.
+ */
 public class Bank {
+
+    /**
+     * List to store all registered user accounts.
+     */
     private final List<UserAccount> accounts = new ArrayList<>();
+
+    /**
+     * Scanner instance for user input.
+     */
     protected final Scanner sc = new Scanner(System.in);
 
+    /**
+     * Creates a new user account with a unique account number.
+     * <p>
+     * - Generates a random 10-digit account number starting with 607.
+     * - Ensures the account number and mobile number are unique.
+     * - Verifies password confirmation before account creation.
+     * </p>
+     */
     protected void createAccount() {
         Random rand = new Random();
         System.out.println("Please enter the name of the user:");
@@ -71,6 +100,11 @@ public class Bank {
         System.out.println("Your account number is " + accountNumber + ". Please note it for future reference.");
     }
 
+    /**
+     * Deletes an existing user account after confirmation.
+     *
+     * @param account The user account to delete.
+     */
     protected void deleteAccount(UserAccount account) {
         if (account != null) {
             while (true) {
@@ -92,6 +126,11 @@ public class Bank {
         }
     }
 
+    /**
+     * Updates a user's mobile number or password.
+     *
+     * @param account The user account to update.
+     */
     protected void updateAccount(UserAccount account) {
         while (true) {
             System.out.println("Choose what you want to update:");
@@ -153,6 +192,11 @@ public class Bank {
         }
     }
 
+    /**
+     * Transfers money between two user accounts.
+     *
+     * @param account The sender's account.
+     */
     protected void transferMoney(UserAccount account) {
         UserAccount sender = account;
 
@@ -186,6 +230,13 @@ public class Bank {
         }
     }
 
+    /**
+     * Retrieves the {@code UserAccount} instance for the given account number and password.
+     *
+     * @param accountNumber The user's account number.
+     * @param password      The user's password.
+     * @return The matching {@code UserAccount} or {@code null} if not found.
+     */
     protected UserAccount getUserAccount(long accountNumber, String password) {
         for (UserAccount user : accounts) {
             if (user.getAccountNumber() == accountNumber) {
@@ -197,6 +248,13 @@ public class Bank {
         return null;
     }
 
+    /**
+     * Validates if the given credentials match any registered user.
+     *
+     * @param accountNumber The account number.
+     * @param password      The password.
+     * @return {@code true} if valid, otherwise {@code false}.
+     */
     protected boolean validateUser(long accountNumber, String password) {
         for (UserAccount user : accounts) {
             if (user.getAccountNumber() == accountNumber) {
@@ -208,6 +266,13 @@ public class Bank {
         return false;
     }
 
+    /**
+     * Updates the balance for deposits or withdrawals.
+     *
+     * @param account   The user account.
+     * @param amount    The transaction amount.
+     * @param isDeposit {@code true} for deposit, {@code false} for withdrawal.
+     */
     protected void updateBalance(UserAccount account, double amount, boolean isDeposit) {
         if (isDeposit) {
             account.deposit(amount);
@@ -218,14 +283,32 @@ public class Bank {
         }
     }
 
+    /**
+     * Retrieves the username associated with the given user account.
+     *
+     * @param account The user account whose username is to be retrieved.
+     * @return The username of the specified account.
+     */
     protected String getUsername(UserAccount account) {
         return account.getUSERNAME();
     }
 
+    /**
+     * Retrieves the account number of the given user account.
+     *
+     * @param account The user account whose account number is to be retrieved.
+     * @return The account number of the specified account.
+     */
     protected long getAccountNumber(UserAccount account) {
         return account.getAccountNumber();
     }
 
+    /**
+     * Retrieves the current balance of the given user account.
+     *
+     * @param account The user account whose balance is to be retrieved.
+     * @return The current balance of the specified account.
+     */
     protected double getBalance(UserAccount account) {
         return account.getBalance();
     }

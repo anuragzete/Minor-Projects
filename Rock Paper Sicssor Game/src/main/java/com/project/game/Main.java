@@ -5,7 +5,30 @@ import com.github.lalyos.jfiglet.FigletFont;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * The {@code Main} class is the entry point for the Rock, Paper, Scissors game.
+ * <p>
+ * Features:
+ * </p>
+ * <ul>
+ *     <li>Generates a random move for the computer.</li>
+ *     <li>Compares the user's move with the computer's to determine the result.</li>
+ *     <li>Displays the result and asks if the user wants to play again.</li>
+ * </ul>
+ *
+ * @author Anurag Zete
+ * @version 1.0.0
+ */
 public class Main {
+
+    /**
+     * The main method to start the Rock, Paper, Scissors game.
+     * <p>
+     * It displays a banner, takes the user's move, generates the computer's move, and displays the result.
+     * </p>
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         Random rand = new Random();
         Scanner sc = new Scanner(System.in);
